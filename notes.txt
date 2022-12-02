@@ -1,0 +1,33 @@
+to create environment
+
+python3 -m venv .venv
+
+Sql :-
+
+to fetch data
+
+cursor.exceute("""select * from posts""")
+posts=cursor.fetchall()
+
+
+
+to add
+    cursor.execute(
+        """insert into posts (title,content,published) values (%s,%s,%s) returning *""",
+        (post.title, post.content, post.published),
+    )
+    new_post = cursor.fetchone()
+    conn.commit()
+
+
+to get
+    cursor.execute("""select * from posts where id=%s""", (str(id)))
+    posts = cursor.fetchone()
+
+
+//user
+
+create nre pydentic model and schema for new user
+for hashing password install passlib
+
+use globally- CryptContext(schemes=["bcrypt"],deprecated="auto")
